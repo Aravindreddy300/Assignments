@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Employee Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Employee List</h1>
+    <a href="/api2/new">Create New Employee</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Company</th>
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listproducts}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.company}"></td>
+               <td>
+               <a th:href="@{/api2/edit/{id}(id=${product.id})}">Edit</a>
+                <a th:href="@{/api2/delete/{id}(id=${product.id})}">Delete</a>
+                </td>
+               
+               
+                
+            </tr>
+        </tbody>
+    </table>
+</div> 
+
+<center>
+<a href="/api/start" > MainMenu</a>
+</center>
+  
+</body>
+</html>
